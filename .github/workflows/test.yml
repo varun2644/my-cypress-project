@@ -1,0 +1,21 @@
+name: Simple Workflow
+
+# Trigger the action when a push is made to the 'main' branch
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main 
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # The virtual machine environment
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2  # This action checks out the code from your repository
+
+      - name: Print File is uploaded
+        run: echo "File is uploaded canvas"  # A simple script that prints "Hello, World!"
