@@ -4,10 +4,10 @@ name: Simple Workflow
 on:
   push:
     branches:
-      - main
+      - cypressscripts  
   pull_request:
     branches:
-      - main 
+      - cypressscripts   
 
 jobs:
   build:

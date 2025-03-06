@@ -11,8 +11,6 @@ describe('upload file', function (){
         cy.wait(2000)
         cy.get('#uploaded-files').contains("pic1.png")
 
-        
-
     })
 }) 
   
