@@ -1,22 +1,29 @@
-describe('Form Tests', () => {
-    beforeEach(()  =>{
-        cy.visit('/forms')
-}) 
-it('Test Subscribe form', () =>{
-    cy.contains(/Testing Forms/i).should('exist') 
-    cy.getDataTest('subscribe-form').find('input').as('subscribe-input')
-    cy.get('@subscribe-input').type('varunsrinivasan.com')
-    //cy.getDataTest('subscribe-form').find('input').type('varunsrinivasan.com')
-    cy.contains(/Successfully subbed: varunsrinivasan.com!/i).should('not.exist')
-    cy.wait(4000)
-    cy.getDataTest('subscribe-button').click()
-    cy.contains(/Successfully subbed: varunsrinivasan.com!/i).should('exist')
-    cy.wait(2000)
-    cy.getDataTest('subscribe-button').click()
-    cy.contains(/Successfully subbed: varunsrinivasan!/i).should('not.exist')
-    cy.wait(2000)
-    cy.contains(/invalid email: varunsrinivasan!/i).should('not.exist')
-    cy.getDataTest('subscribe-button').click()
-    
-})
-}) 
+describe("Canvas", () => {
+
+    beforeEach(() => {
+      cy.visit('https://kitchen.applitools.com/ingredients/canvas');
+    });
+  
+    it('should click a button on a canvas', () => {
+      cy.get('#burger_canvas').then($canvas => {
+  
+        const canvasWidth = $canvas.width();
+        const canvasHeight = $canvas.height();
+  
+        const canvasCenterX = canvasWidth / 2;
+        const canvasCenterY = canvasHeight / 2;
+  
+        const buttonX = canvasCenterX + ( ( canvasCenterX / 3 ) * 2 );
+        const buttonY = canvasCenterY + ( ( canvasCenterY / 3 ) * 2 );
+  cy.wait(2000)
+        cy.wrap($canvas)
+        .scrollIntoView()
+        .click(buttonX,buttonY)
+         });
+  
+        //  cy.eyesOpen({ testName: 'Burger on Canvas' });
+        //  cy.eyesCheckWindow();
+        //  cy.eyesClose();
+     
+        });
+  });
